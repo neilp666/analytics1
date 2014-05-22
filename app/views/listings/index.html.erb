@@ -1,0 +1,38 @@
+<div class="jumbotron center">
+  <h1>Work in Analytics</h1>
+  <h2>Find a great career in the Analytics Industry Today!</h2>
+  <p>This is a great website for anyone looking for analytics jobs in 
+    the analytics industry. Don't search an endless list of websites with only a few
+    job postings. Out staff is dedicated to finding every open analytics job on the web
+  <p>
+    <%= link_to "Post a job", new_listing_path , class: "btn btn-danger btn-lg" %>
+  <p>
+</div>
+
+<table class="table table-striped table-bordered">
+
+    <tr>
+      <th><h4>Job Title</h4></th>
+      <th><h4>Company</h4></th>
+      <th class="center"><h4>Description</h4></th>
+      <th><h4>Location</h4></th>
+      <th><h4>Date</h4></th>
+      <th></th>
+ 
+    </tr>
+
+    <% @listings.each do |listing| %>
+      <tr>
+        <td><%= listing.title %></td>
+        <td><%= listing.name %></td>
+        <td><%= listing.description %></td>
+        <td><%= listing.location %></td>
+        <td><%= listing.created_at.strftime("%B %-d, %Y") %></td>
+        <td><%= link_to 'Apply', listing , class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+</table>
+
+<br>
+
+<%= link_to 'Post Your Job', new_listing_path, class: "btn btn-danger" %>
